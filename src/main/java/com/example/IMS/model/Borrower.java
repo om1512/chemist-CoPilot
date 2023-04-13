@@ -90,6 +90,19 @@ public class Borrower {
 		}
 		return totalFine;
 	}
+	
+	
+
+	public Borrower() {
+		super();
+	}
+
+	public Borrower(String firstName, String lastName, String email) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
 
 	public void updateFine(double finePaid) {
 		double fine = 0;

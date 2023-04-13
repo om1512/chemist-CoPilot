@@ -20,4 +20,6 @@ public interface IItemIssuanceService {
 	String validateLoanId(long loanId);
 
 	Loan findItemIssued(long borrowerId, long itemId);
+	
+	void updateSell(Loan loan,long id);
 }

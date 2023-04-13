@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "item_type")
-public class ItemType {
+public class ItemType implements Comparable<ItemType>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,5 +34,22 @@ public class ItemType {
 	public void setTypeName(String typeName) {
 		this.typeName = typeName;
 	}
+
+	public ItemType(String typeName) {
+		super();
+		this.typeName = typeName;
+	}
+
+	public ItemType() {
+		super();
+	}
+
+	@Override
+	public int compareTo(ItemType o) {
+		return (int) (this.id - o.id);
+	}
+	
+	
+	
 
 }

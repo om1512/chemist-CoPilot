@@ -2,6 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <div th:replace="header :: myHeader"></div>
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
 </head>
 <body class="sb-nav-fixed">
 	<div th:replace="navbar :: myNavbar"></div>
@@ -10,9 +36,8 @@
 		<!-- Form starts from here -->
 		<div id="layoutSidenav_content">
 			<div class="container">
-			<br/>
-				<!-- <br>
-				<div class="spinner-grow text-muted"></div>
+				<br>
+				<!-- <div class="spinner-grow text-muted"></div>
 				<div class="spinner-grow text-primary"></div>
 				<div class="spinner-grow text-success"></div>
 				<div class="spinner-grow text-info"></div>
@@ -24,22 +49,22 @@
 				<hr> -->
 				<ol class="breadcrumb mb-4">
 					<li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-					<li class="breadcrumb-item active">Add Inventory Item</li>
+					<li class="breadcrumb-item active">Add Medicine Type</li>
 				</ol>
-				<form action="store_data" method="GET">
+				<form action="/addType" method="POST">
     
 
 					<!-- Text input-->
 					
 					<fieldset class="border p-2">
-						<legend class="w-auto"> Add Borrower </legend>
+						<legend class="w-auto"> Add Item Type </legend>
 						<div class="form-group">
-							<label class="col-md-4 control-label">First Name</label>
+							<label class="col-md-4 control-label">Item Type</label>
 							<div class="col-md-4 inputGroupContainer">
 								<div class="input-group">
 									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input name="firstname"
-										placeholder="Enter First Name" 
+										class="glyphicon glyphicon-user"></i></span> <input name="type"
+										placeholder="Enter Item Type" 
 										class="form-control" type="text" required>
 								</div>
 
@@ -47,33 +72,7 @@
 						</div>
 						<!-- Text input-->
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Last Name</label>
-							<div class="col-md-4 inputGroupContainer">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input name="lastname"
-										placeholder="Enter Last Name"
-										class="form-control" type="text" required>
-								</div>
-
-							</div>
-						</div> 
-
 						
-						
-						<div class="form-group">
-							<label class="col-md-4 control-label">Email</label>
-							<div class="col-md-4 inputGroupContainer">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="glyphicon glyphicon-user"></i></span> <input name="email"
-										placeholder="Enter Email Address" 
-										class="form-control" type="text" required>
-								</div>
-
-							</div>
-						</div> 
 						<!-- Select Basic -->
 						<!-- Button -->
 						<div class="form-group">
@@ -85,6 +84,19 @@
 						</div>
 					</fieldset>
 				</form>
+			
+			<hr>
+			<br/>
+			<table id="customers">
+			<tr th:each="list : ${list}">
+			 <td th:text="${list.id}"></td>
+			 <td th:text="${list.typeName}"></td>
+			 
+			 <td><a th:href="@{/deleteItemType/{id}(id=${list.id})}"
+								class="btn btn-danger"> Delete </a></td>
+								
+			</tr>
+			</table>
 			</div>
 		</div>
 	</div>

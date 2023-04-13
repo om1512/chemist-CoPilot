@@ -3,6 +3,7 @@ package com.example.IMS.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import com.example.IMS.repository.IBorrowerRepository;
 
 @Service
 public class BorrowerService implements IBorrowerService {
-
+ 
 	@Autowired
 	private IBorrowerRepository borrowerRepository;
 
@@ -70,6 +71,7 @@ public class BorrowerService implements IBorrowerService {
 		borrowerRepository.save(borrower);
 
 	}
+
 
 	
 

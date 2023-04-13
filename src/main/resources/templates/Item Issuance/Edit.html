@@ -11,7 +11,7 @@
 		<div id="layoutSidenav_content">
 			<div class="container">
 				<br>
-				<div class="spinner-grow text-muted"></div>
+				<!-- <div class="spinner-grow text-muted"></div>
 				<div class="spinner-grow text-primary"></div>
 				<div class="spinner-grow text-success"></div>
 				<div class="spinner-grow text-info"></div>
@@ -20,12 +20,12 @@
 				<div class="spinner-grow text-secondary"></div>
 				<div class="spinner-grow text-dark"></div>
 				<div class="spinner-grow text-light"></div>
-				<hr>
+				<hr> -->
 				<ol class="breadcrumb mb-4">
 					<li class="breadcrumb-item"><a href="/">Dashboard</a></li>
 					<li class="breadcrumb-item active">Item Issuance Edit</li>
 				</ol>
-				<form th:action="@{/ItemIssuanceCreate}"
+				<form th:action="@{/ItemSellUpdate}"
 					th:object="${itemIssuanceDto}" method="post">
 					<div class="alert alert-danger"
 						th:if="${#fields.hasErrors('global')}">
@@ -87,9 +87,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- Form ends here -->
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 	<div th:replace="footer :: myFooter"></div>
 </body>
 </html>

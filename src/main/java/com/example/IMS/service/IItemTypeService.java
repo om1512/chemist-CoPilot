@@ -9,4 +9,6 @@ public interface IItemTypeService {
 	ItemType getItemTypeByName(String name);
 	List<ItemType> getAllItemTypes();
 	String validateItemTypeByName(String name);
+	void deleteItem(ItemType itemType);
+	void deleteItemById(long id);
 }

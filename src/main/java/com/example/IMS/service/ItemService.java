@@ -88,4 +88,18 @@ public class ItemService implements IItemService {
 		itemRepository.delete(item);
 	}
 
+	@Override
+	public void updateItem(Item item) {
+		Item i = getItemById(item.getId());
+		i.setName(item.getName());
+		i.setPrice(item.getPrice());
+		i.setInvoiceNumber(item.getInvoiceNumber());
+		i.setItemType(item.getItemType());
+		i.setQuantity(item.getQuantity());
+		i.setVendor(item.getVendor());
+		i.setFineRate(item.getFineRate());
+		itemRepository.save(i);
+		System.out.println("UPDATED......");
+	}
+
 }

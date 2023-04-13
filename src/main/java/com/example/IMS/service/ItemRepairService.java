@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.IMS.model.Item;
 import com.example.IMS.model.ItemRepair;
 import com.example.IMS.repository.IItemRepairRepository;
 
@@ -40,6 +41,17 @@ public class ItemRepairService implements IItemRepairService {
 			// Exception
 		}
 		return itemRepair;
+	}
+
+	@Override
+	public void updateTransportcost(ItemRepair itemRepair) {
+		// TODO Auto-generated method stub
+		ItemRepair itemR = itemRepairRepository.getById(itemRepair.getId());
+		itemR.setItem(itemRepair.getItem());
+		itemR.setVendor(itemRepair.getVendor());
+		itemR.setPrice(itemRepair.getPrice());
+		itemR.setCost(itemRepair.getCost());
+		itemRepairRepository.save(itemR);
 	}
 
 }

@@ -64,6 +64,27 @@ public class ItemRepairController {
 		return "redirect:/ItemRepairView";
 
 	}
+	
+	@PostMapping("/ItemCostEdit")
+	public String edit(@Valid @ModelAttribute("itemRepairDto") ItemRepairDto itemRepairDto, BindingResult result) {
+		String err = vendorService.validateVendorId(itemRepairDto.getVendorId());
+		if (!err.isEmpty()) {
+			ObjectError error = new ObjectError("globalError", err);
+			result.addError(error);
+		}
+		err = itemService.validateItemId(itemRepairDto.getItemId());
+		if (!err.isEmpty()) {
+			ObjectError error = new ObjectError("globalError", err);
+			result.addError(error);
+		}
+		if (result.hasErrors()) {
+			return "/Item Repair/Create";
+		}
+
+		itemRepairService.updateTransportcost(itemRepairConvertor.DtoToModel(itemRepairDto));
+		return "redirect:/ItemRepairView";
+
+	}
 
 	@GetMapping("/ItemRepairEdit/{id}")
 	public String Edit(@PathVariable(value = "id") long id, Model model) {

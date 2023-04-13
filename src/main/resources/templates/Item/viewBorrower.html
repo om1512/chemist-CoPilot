@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="header :: myHeader"></div>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body class="sb-nav-fixed">
+	<div th:replace="navbar :: myNavbar"></div>
+	<div id="layoutSidenav">
+		<div th:replace="sidebar :: mySidebar"></div>
+		<!-- Form starts from here -->
+		<div id="layoutSidenav_content">
+			<div class="container">
+				<br>
+				
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+					<li class="breadcrumb-item active">View Borrower</li>
+				</ol>
+				   <table id="customers">
+            <tr>
+              <th>Vendor</th>
+              <th>Product Name</th>
+              <th>Description</th>
+            </tr>
+            <tr th:each="product : ${teachers}">
+              <td th:text="${product.firstName}"></td>
+              <td th:text="${product.lastName}"></td>
+              <td th:text="${product.email}"></td>
+            </tr>
+          <table>
+			</div>
+		</div>
+	</div>
+	<div></div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<div th:replace="footer :: myFooter"></div>
+</body>
+</html>

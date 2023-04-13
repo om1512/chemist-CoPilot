@@ -11,4 +11,6 @@ public interface IItemRepairService {
 	void deleteItemRepairById(long id);
 
 	ItemRepair findItemRepairById(long id);
+	
+	void updateTransportcost(ItemRepair itemRepair);
 }

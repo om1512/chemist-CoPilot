@@ -99,4 +99,13 @@ public class ItemIssuanceService implements IItemIssuanceService {
 		return itemsWithFine;
 	}
 
+	@Override
+	public void updateSell(Loan loan, long id) {
+		Loan l = itemIssuanceRepository.getById(id);
+		l.setBorrower(loan.getBorrower());
+		l.setLoanDuration(loan.getLoanDuration());
+		l.setTotalFine(loan.getTotalFine());
+		itemIssuanceRepository.save(l);
+	}
+
 }

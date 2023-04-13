@@ -18,4 +18,6 @@ public interface IItemService {
 	String validateItemId(String itemName, String itemType);
 
 	void deleteItem(long itemId);
+	
+	void updateItem(Item item);
 }

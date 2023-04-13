@@ -17,7 +17,7 @@ public class ItemRepair {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "repair_id")
-	private long id;
+	private long id;	
 
 	@Column(name = "repair_cost")
 	private double cost;

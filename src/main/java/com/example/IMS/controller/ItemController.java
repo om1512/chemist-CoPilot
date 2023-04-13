@@ -49,6 +49,35 @@ public class ItemController {
 		model.addAttribute("itemTypeList", itemTypeService.getAllItemTypes());
 		return "/Item/Create";
 	}
+	
+	
+	@PostMapping("/ItemUpdate")
+	public String update(@Valid @ModelAttribute("itemDto") ItemDto itemDto, BindingResult result, Model model) {
+		String err = vendorService.validateVendorName(itemDto.getVendorName());
+		Vendor vendor = vendorService.getVendorByName(itemDto.getVendorName());
+		ItemType itemType = itemTypeService.getItemTypeByName(itemDto.getItemType());
+		long id = itemDto.getItemId();
+		double price = itemDto.getItemPrice();
+		String name = itemDto.getItemName();
+		double quantity = itemDto.getItemQuantity();
+		double fineRate = itemDto.getFineRate();
+		long invoice = itemDto.getInvoiceNumber();
+		System.out.println("UPDATED : ---------- ");
+		System.err.println(id + " " + price + " " + name + " " + quantity + " " + vendor);
+		Item item = new Item();
+		item = itemConvertor.dtoToModel(itemDto);
+		item.setId(id);
+		item.setVendor(vendor);
+		item.setItemType(itemType);
+		item.setFineRate(fineRate);
+		item.setName(name);
+		item.setInvoiceNumber(invoice);
+		item.setPrice(price);
+		item.setQuantity((int)quantity);
+		itemService.updateItem(item);
+		
+		return "redirect:/ItemView";
+	}
 
 	@PostMapping("/ItemCreate")
 	public String Create(@Valid @ModelAttribute("itemDto") ItemDto itemDto, BindingResult result, Model model) {

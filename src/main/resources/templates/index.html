@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;800&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+<style>
+.mainBody{
+	width:100%;
+	height:100%;
+	object-fit: cover;
+    background: url(https://cdn.dribbble.com/users/263266/screenshots/14867001/media/737a46a62688150db529b24e1049a3f8.jpg?compress=1&resize=1000x750&vertical=top);
+}
+</style>
 <div th:replace="header :: myHeader"></div>
 </head>
 <body class="sb-nav-fixed">
@@ -9,86 +23,25 @@
 		<div th:replace="sidebar :: mySidebar"></div>
 		<!-- Sidebar ends here -->
 		<div id="layoutSidenav_content">
-			<main>
-				<div class="container-fluid">
-					<h1 class="mt-4">Medicine Inventory Management System</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item active">Homepage</li>
-					</ol>
-					<div class="row">
-						<div class="col-xl-6">
-							<div class="card mb-4">
-								<div class="card-header">
-									<i class="fas fa-chart-area mr-1"></i> Items Borrowed
-								</div>
-								<div class="card-body">
-									<canvas id="myAreaChart" width="100%" height="40"></canvas>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6">
-							<div class="card mb-4">
-								<div class="card-header">
-									<i class="fas fa-chart-area mr-1"></i> Items Returned
-								</div>
-								<div class="card-body">
-									<canvas id="myDuplicateChart" width="100%" height="40"></canvas>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6">
-							<div class="card mb-4">
-								<div class="card-header">
-									<i class="fas fa-chart-area mr-1"></i> Inventory Remaining
-								</div>
-								<div class="card-body">
-									<canvas id="myAreaChart2" width="100%" height="40"></canvas>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6">
-							<div class="card mb-4">
-								<div class="card-header">
-									<i class="fas fa-chart-area mr-1"></i> Items Issued
-								</div>
-								<div class="card-body">
-									<canvas id="myAreaChart3" width="100%" height="40"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; IMS 2021</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+			<div class="mainBody">
+			
+			</div>
+			
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	
+			
+	
+	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		crossorigin="anonymous"></script>
-	<script
+	 <script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
 	<script src="js/scripts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-		crossorigin="anonymous"></script>
-	<script src="js/chart-area-demo.js"></script>
-	<script src="js/chart-bar-demo.js"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
-		crossorigin="anonymous"></script>
-	<script src="js/datatables-demo.js"></script>
+	
+
+	
+
+	
 </body>
 </html>

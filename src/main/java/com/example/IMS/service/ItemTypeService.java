@@ -47,4 +47,16 @@ public class ItemTypeService implements IItemTypeService {
 		return errorMessage;
 	}
 
+	@Override
+	public void deleteItem(ItemType itemType) {
+		itemTypeRepository.delete(itemType);
+		
+	}
+
+	@Override
+	public void deleteItemById(long id) {
+		ItemType it = itemTypeRepository.getById(id);
+		itemTypeRepository.delete(it);
+	}
+
 }

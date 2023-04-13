@@ -12,7 +12,7 @@
 		<div id="layoutSidenav_content">
 			<div class="container">
 				<br>
-				<div class="spinner-grow text-muted"></div>
+				<!-- <div class="spinner-grow text-muted"></div>
 				<div class="spinner-grow text-primary"></div>
 				<div class="spinner-grow text-success"></div>
 				<div class="spinner-grow text-info"></div>
@@ -21,12 +21,12 @@
 				<div class="spinner-grow text-secondary"></div>
 				<div class="spinner-grow text-dark"></div>
 				<div class="spinner-grow text-light"></div>
-				<hr>
+				<hr> -->
 				<ol class="breadcrumb mb-4">
 					<li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-					<li class="breadcrumb-item active">Edit Repair Item</li>
+					<li class="breadcrumb-item active">Edit transport cost</li>
 				</ol>
-				<form th:action="@{/ItemRepairCreate}" th:object="${itemRepairDto}"
+				<form th:action="@{/ItemCostEdit}" th:object="${itemRepairDto}"
 					method="post">
 					<div class="form-group">
 						<input type="hidden" th:field="*{id}" class="form-control">

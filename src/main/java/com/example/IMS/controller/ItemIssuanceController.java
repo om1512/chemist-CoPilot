@@ -86,6 +86,25 @@ public class ItemIssuanceController {
 		return "redirect:/ItemIssuanceView";
 	}
 
+	
+	@PostMapping("/ItemSellUpdate")
+	public String update(@Valid @ModelAttribute("itemIssuanceDto") ItemIssuanceDto itemIssuanceDto,
+			BindingResult result) {
+		Borrower borrower = null;
+		Item item = null;
+		borrower = borrowerService.getBorrowerById(itemIssuanceDto.getBorrowerId());
+		item = itemService.getItemById(itemIssuanceDto.getItemId());
+		Loan loan = itemIssuanceConvertor.dtoToModel(itemIssuanceDto);
+		System.out.println("OMM" +itemIssuanceDto.getId() + " "+loan.getIssueDate() + " "+loan.getTotalFine());
+		borrower.addLoan(loan);
+		item.addLoan(loan);
+		item.descreaseQuantity();
+		itemService.saveItem(item);
+		itemIssuanceService.updateSell(loan,itemIssuanceDto.getId());
+		return "redirect:/ItemIssuanceView";
+	}
+	
+	
 	@GetMapping("/ItemIssuanceEdit/{id}")
 	public String Edit(@PathVariable(value = "id") long id, Model model) {
 		Loan loan = itemIssuanceService.findItemIssuedById(id);
